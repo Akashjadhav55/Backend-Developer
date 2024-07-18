@@ -63,8 +63,6 @@ let fetchMoviesByID = async (id) => {
   let res = await db.all(query, [id])
   return {movies : res }
 }
-
-
 app.get("/movies/details/:id", async (req , res) => {
   try{
     let id = parseInt(req.params.id);
@@ -85,8 +83,6 @@ let fetchMoviesByYear = async (release_year) => {
   let res = await db.all(query, [release_year])
   return {movies : res }
 }
-
-
 app.get("/movies/release-year/:year", async (req , res) => {
   try{
     let year = parseInt(req.params.year);
