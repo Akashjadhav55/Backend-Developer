@@ -38,17 +38,12 @@ let filterCoursesByRating = async (rating) => {
   }
  })
 
-
-
-
-
-
 // Exercise 2: Fetch Courses by Instructor and Minimum Duration
 // http://localhost:3000/courses/instructor-duration?instructor=Instructor%20A&minDuration=7
 let filterCoursesByInstructorAndDuration = async (minDuration,instructor) => {
-  console.log(typeof minDuration, minDuration)
    let query = "SELECT * FROM courses WHERE instructor = ? AND duration > ? "
-   let response = await db.all(query, [minDuration, instructor ])
+   let response = await db.all(query, [instructor, minDuration  ])
+  console.log(response)
    return { courses : response }
  }
  app.get("/courses/instructor-duration", async (req ,res) => {
@@ -66,6 +61,24 @@ let filterCoursesByInstructorAndDuration = async (minDuration,instructor) => {
   }
  })
 
+// Exercise 3: Fetch Courses Ordered by Price
+// http://localhost:3000/courses/ordered-by-price
+let fetchCoursesOrderedByPrice = async () => {
+  let query = "SELECT * FROM courses ORDER BY price DESC";
+  let response = await db.all(query, []);
+  return { courses : response }
+}
+app.get("/courses/ordered-by-price", async (req ,res) => {
+  try{
+    let result = await fetchCoursesOrderedByPrice();
+    if(result.courses.length === 0){
+      return res.status(404).json({ message : "Sorry, Courses Not Found" })
+    }
+    return res.status(200).json(result)
+  }catch(error){
+    return res.status(500).json({ error : error.message })
+  }
+})
 
 
  app.listen(PORT, () => {
