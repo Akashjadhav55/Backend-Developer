@@ -68,6 +68,7 @@ let fetchEmployeesOrderedBySalary = async () => {
   let response = await db.all(query, [ ])
   return { employees : response }
 }
+
 app.get("/employees/ordered-by-salary", async (req ,res) => {
   try{
   let result = await fetchEmployeesOrderedBySalary()
