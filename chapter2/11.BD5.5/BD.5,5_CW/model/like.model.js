@@ -2,7 +2,6 @@ let { DataTypes, sequelize } = require("../lib/")
 
 let  { user } = require("./user.model.js")
 let { track } = require("./track.model.js")
-const { type } = require("os")
 
 let like = sequelize.define("like",{
     userId: {
