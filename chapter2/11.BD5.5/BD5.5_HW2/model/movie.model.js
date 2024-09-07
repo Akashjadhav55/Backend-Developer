@@ -1,11 +1,11 @@
 let  { DataTypes, sequelize } = require("../lib/")
 
-let books = sequelize.define("books",{
+let movies = sequelize.define("movies",{
   title: DataTypes.TEXT,
-  author: DataTypes.TEXT,
+    director: DataTypes.TEXT,
   genre: DataTypes.TEXT,
   year: DataTypes.INTEGER,
   summary: DataTypes.TEXT,
 })
 
-module.exports = { books }
+module.exports = { movies }

@@ -1,6 +1,6 @@
 let { DataTypes, sequelize } = require("../lib/")
 
-let { books } = require("./book.model.js")
+let { movies } = require("./movie.model.js")
 let { users } = require("./user.model.js")
 
 let like = sequelize.define("like", {
@@ -11,11 +11,16 @@ let like = sequelize.define("like", {
       key : "id"
     }
   },
-  bookId : {
+  movieId : {
     type : DataTypes.INTEGER,
     references : {
-      model : books,
+      model : movies,
       key : "id"
     }
   }
 })
+
+users.belongsToMany(movies, { through : "like" })
+movies.belongsToMany(users, { through : "like" })
+
+module.exports = { like }
