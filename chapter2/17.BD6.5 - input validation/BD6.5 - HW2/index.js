@@ -41,8 +41,6 @@ app.post("/api/companies", (req, res) => {
 })
 
 
-// app.listen(port, () => {
-//   console.log(`Example app listening at http://localhost:${port}`);
-// });
+
 
 module.exports = { app, validateEmployee, validateCompany }
