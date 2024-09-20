@@ -20,4 +20,10 @@ afterAll( async () => {
     server.close()
 })
 
-de
+describe("function testing" , () => {
+    beforeEach(() => {
+        jest.clearAllMocks()
+    })
+
+    it("") 
+})
