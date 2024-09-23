@@ -20,7 +20,7 @@ let getShowById = (id) => {
 }
 
 let addNewShow = (newShow) => {
-    let data = { id :  shows.length + 1, ...newShow }
+    let data = { showId :  shows.length + 1, ...newShow }
     shows.push(data)
     return data
 }
