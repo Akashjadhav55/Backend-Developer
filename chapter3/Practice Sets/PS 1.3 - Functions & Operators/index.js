@@ -64,7 +64,27 @@ let convertToMinutes = (hours) => {
 console.log(convertToMinutes(2))
 
 //Exercise 6: Count Occurrences of Character in String
-let countOccurrences = () => {
-    
+let countOccurrences = (str, char) => {
+    let array = []
+    let count = 0
+    for(let i = 0; i < str.length; i++ ){
+      if(str[i] === char){
+        count++;
+      }
+    }
+    console.log(`Character ${char} repeats ${count} times`)
 }
-countOccurrences()
+countOccurrences('hello world','o')
+
+// Exercise 7: Find the Sum of All Even Numbers in an Array
+let numbers = [1, 2, 3, 4, 5, 6];
+let sumOfEvenNumbers =  (arr) => {
+  let  sum = 0;
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] % 2 === 0){
+      sum += arr[i];
+    }
+  }
+  console.log(`The sum of all even numbers is ${sum}`)
+}
+sumOfEvenNumbers(numbers)
